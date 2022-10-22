@@ -1,0 +1,15 @@
+version: "3.3"
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "${DATABASE_PORT}:3306"
+    expose:
+      - "${DATABASE_PORT}"
+    container_name: db
